@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.13)
+cmake_minimum_required (VERSION 3.22)
 project (BlackBoneLib)
 
 if(CMAKE_CL_64)
