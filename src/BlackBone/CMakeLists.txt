@@ -286,6 +286,10 @@ endif()
 
 add_library(BlackBone STATIC ${SOURCE_LIB} ${HEADER_LIB})
 
+if(MSVC)
+  set_property(TARGET BlackBone PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+
 target_include_directories(BlackBone PUBLIC "../")
 target_include_directories(BlackBone PUBLIC "${DOTNET_SDK}/Include/um")
 
