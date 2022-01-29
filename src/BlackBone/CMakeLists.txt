@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.22)
+cmake_minimum_required (VERSION 3.21)
 project (BlackBoneLib)
 
 if(CMAKE_CL_64)
@@ -286,9 +286,9 @@ endif()
 
 add_library(BlackBone STATIC ${SOURCE_LIB} ${HEADER_LIB})
 
-# if(MSVC)
-#   set_property(TARGET BlackBone PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-# endif()
+if(MSVC)
+  set_property(TARGET BlackBone PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
 
 target_include_directories(BlackBone PUBLIC "../")
 target_include_directories(BlackBone PUBLIC "${DOTNET_SDK}/Include/um")
